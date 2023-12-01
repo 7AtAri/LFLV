@@ -11,12 +11,22 @@ a visual vocabulary for Las Vegas is documented manually by domain experts.
 ## Data
 1) Publicly available images of the city of Las Vegas will be
 collected with webscaping.
-possible datasources: 
-- google street view
+possible datasources:
+- google street view api:
+  https://developers.google.com/maps/documentation/streetview?hl=de
+- google street view:
+  https://github.com/FluffyMaguro/Streetview-panorama-scraping
+  https://pypi.org/project/google-streetview/
+  https://pypi.org/project/sv-dlp/
+  
 - google image search
 - ...
+2) undistort the data:
+  - [method survey](https://github.com/KangLiao929/Awesome-Deep-Camera-Calibration)
+  - [Learning-based Camera Calibration](https://github.com/Easonyesheng/CCS)
+  
 
-2) the data / parts of the data (maybe only for testing?) might need to be tagged manually
+3) the data / parts of the data (maybe only for testing?) might need to be tagged manually
 
 ## Transfer Learning
 
