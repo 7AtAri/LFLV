@@ -15,9 +15,10 @@ possible datasources:
 - google street view api:
   https://developers.google.com/maps/documentation/streetview?hl=de
 - google street view:
-  https://github.com/FluffyMaguro/Streetview-panorama-scraping
-  https://pypi.org/project/google-streetview/
-  https://pypi.org/project/sv-dlp/
+
+  * https://github.com/FluffyMaguro/Streetview-panorama-scraping
+  * https://pypi.org/project/google-streetview/
+  * https://pypi.org/project/sv-dlp/
   
 - google image search
 - ...
