@@ -1,4 +1,4 @@
-# Learning from Las Vegas
+# ** Learning from Las Vegas** 
 
 ## General Idea
 This project tries to examine the visual vocabulary 
@@ -9,8 +9,8 @@ Robert Venturi, Denise Scott Brown, and Steven Izenour,
 a visual vocabulary for Las Vegas is documented manually by domain experts.
 
 ## Data
-1) Publicly available images of the city of Las Vegas will be
-collected with webscaping.
+**1) webscaping** Publicly available images of the city of Las Vegas will be
+collected 
 possible datasources:
 - google street view api:
 
@@ -25,13 +25,13 @@ possible datasources:
 - google image search
 - ...
   
-2) undistort the data:
+**2) undistort the data**:
   
   - [method survey](https://github.com/KangLiao929/Awesome-Deep-Camera-Calibration)
   - [Learning-based Camera Calibration](https://github.com/Easonyesheng/CCS)
   
 
-3) the data / parts of the data (maybe only for testing?) might need to be tagged manually
+**3) tagging the data** / parts of the data (maybe only for testing?) 
 
 ## Transfer Learning
 
