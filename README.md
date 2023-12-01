@@ -55,7 +55,7 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 - measure feature vector distances
 - visualize with r-tsne
 - visualize neurons for architectural features
-- 
+- metric for creativity? https://github.com/facebookresearch/DoodlerGAN
 
 
 
