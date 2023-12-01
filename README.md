@@ -33,7 +33,14 @@ possible datasources:
 
 **3) tagging the data** / parts of the data (maybe only for testing?) 
 
+*  Optical Character Recognition: https://github.com/aqntks/Easy-Yolo-OCR
+*  Object Recognition Model (YOLO)
+*  adding tag to image of object in closest proximity to the text
+
 **4) Architectural elements data -tagged images- of domain specialist**
+
+* https://archive.org/details/americanglossary00garn/page/n53/mode/1up?view=theater
+* https://newenglandclassic.com/visual-architectural-element-glossary/
 
 
 ## Transfer Learning
