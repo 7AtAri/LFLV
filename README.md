@@ -1,4 +1,4 @@
-# ** Learning from Las Vegas** 
+# Learning from Las Vegas
 
 ## General Idea
 This project tries to examine the visual vocabulary 
