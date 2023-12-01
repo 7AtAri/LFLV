@@ -33,6 +33,9 @@ possible datasources:
 
 **3) tagging the data** / parts of the data (maybe only for testing?) 
 
+**4) Architectural elements data -tagged images- of domain specialist**
+
+
 ## Transfer Learning
 
 A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Vegas Images.
