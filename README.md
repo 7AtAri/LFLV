@@ -13,7 +13,7 @@ a visual vocabulary for Las Vegas is documented manually by domain experts.
 collected with webscaping.
 possible datasources:
 - google street view api:
-  https://developers.google.com/maps/documentation/streetview?hl=de
+  * https://developers.google.com/maps/documentation/streetview?hl=de
 - google street view:
 
   * https://github.com/FluffyMaguro/Streetview-panorama-scraping
