@@ -13,7 +13,9 @@ a visual vocabulary for Las Vegas is documented manually by domain experts.
 collected with webscaping.
 possible datasources:
 - google street view api:
+
   * https://developers.google.com/maps/documentation/streetview?hl=de
+    
 - google street view:
 
   * https://github.com/FluffyMaguro/Streetview-panorama-scraping
@@ -22,7 +24,9 @@ possible datasources:
   
 - google image search
 - ...
+  
 2) undistort the data:
+  
   - [method survey](https://github.com/KangLiao929/Awesome-Deep-Camera-Calibration)
   - [Learning-based Camera Calibration](https://github.com/Easonyesheng/CCS)
   
