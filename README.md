@@ -41,6 +41,7 @@ possible datasources:
 
 * https://archive.org/details/americanglossary00garn/page/n53/mode/1up?view=theater
 * https://newenglandclassic.com/visual-architectural-element-glossary/
+* https://ia802804.us.archive.org/18/items/avisualdictionaryofarchitecture/A%20Visual%20Dictionary%20of%20Architecture.pdf
 
 
 ## Transfer Learning
@@ -48,6 +49,7 @@ possible datasources:
 A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Vegas Images.
 
 -> classification ?
+
 -> conditional image generation?
 
 ## Evaluation
