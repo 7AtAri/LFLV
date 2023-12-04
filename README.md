@@ -24,7 +24,11 @@ possible datasources:
   
 - google image search:
   * https://pypi.org/project/GoogleImageScraper/
-- ...
+    
+- mapillary image download via API:
+  * https://github.com/pyramid3d/python-tools/blob/master/src/mapillary_download.py
+  * https://www.mapillary.com/developer/api-documentation?locale=de_DE#image
+  * https://gist.github.com/cbeddow/79d68aa6ed0f028d8dbfdad2a4142cf5
   
 **2) undistort the data**:
   
