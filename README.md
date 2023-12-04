@@ -22,7 +22,8 @@ possible datasources:
   * https://pypi.org/project/google-streetview/
   * https://pypi.org/project/sv-dlp/
   
-- google image search
+- google image search:
+  * https://pypi.org/project/GoogleImageScraper/
 - ...
   
 **2) undistort the data**:
