@@ -57,7 +57,7 @@ possible datasources:
 A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Vegas Images.
 
 -> classification ?
-
+-> feature vector visualization: https://yosinski.com/deepvis
 -> conditional image generation?
 
 ## Evaluation
