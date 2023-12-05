@@ -27,7 +27,7 @@ possible datasources:
     
 - mapillary image download via API:
   * token: MLY|6919611378086321|feb37f9b9d4e6dc4ca37b7a6a862f43c
-  * client ID: 6919611378086321
+  * client ID: 6919611378086321 
   * https://github.com/pyramid3d/python-tools/blob/master/src/mapillary_download.py
   * https://www.mapillary.com/developer/api-documentation?locale=de_DE#image
   * https://gist.github.com/cbeddow/79d68aa6ed0f028d8dbfdad2a4142cf5
