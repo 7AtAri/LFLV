@@ -51,7 +51,8 @@ possible datasources:
 * https://archive.org/details/americanglossary00garn/page/n53/mode/1up?view=theater
 * https://newenglandclassic.com/visual-architectural-element-glossary/
 * https://ia802804.us.archive.org/18/items/avisualdictionaryofarchitecture/A%20Visual%20Dictionary%20of%20Architecture.pdf
-* 
+
+* https://www.kaggle.com/datasets/amaralibey/gsv-cities
 
 
 ## Transfer Learning
