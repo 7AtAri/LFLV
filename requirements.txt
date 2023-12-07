@@ -1,0 +1,7 @@
+
+# requirements
+
+mercantile
+mapbox_vector_tile
+requests
+vt2geojson
