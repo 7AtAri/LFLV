@@ -32,13 +32,13 @@ possible datasources:
   * https://www.mapillary.com/developer/api-documentation?locale=de_DE#image
   * https://gist.github.com/cbeddow/79d68aa6ed0f028d8dbfdad2a4142cf5
   
-**2) undistort the data**:
+**2) eventually undistort the data**:
   
   - [method survey](https://github.com/KangLiao929/Awesome-Deep-Camera-Calibration)
   - [Learning-based Camera Calibration](https://github.com/Easonyesheng/CCS)
   
 
-**3) tagging the data** / parts of the data (maybe only for testing?) 
+**3) eventually tagging the data** / parts of the data (maybe only for testing?) 
 
 *  Optical Character Recognition: https://github.com/aqntks/Easy-Yolo-OCR
 *  Object Recognition Model (YOLO)
