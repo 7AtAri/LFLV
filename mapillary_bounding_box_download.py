@@ -34,24 +34,27 @@ west, south, east, north = [-115.198081, 36.094581 , -115.212071, 36.105747]
 
 # get the list of tiles with x and y coordinates which intersect our bounding box
 # MUST be at zoom level 14 where the data is available, other zooms currently not supported
-tiles = list(mercantile.tiles(west, south, east, north, 14))
+tiles = list(mercantile.tiles(west, south, east, north, 14)) # prepare the tiles
 
+print("Number of tiles: ", len(tiles))
 # loop through list of tiles to get tile z/x/y to plug in to Mapillary endpoints and make request
-for tile in tiles:
-    tile_url = 'https://tiles.mapillary.com/maps/vtp/{}/2/{}/{}/{}?access_token={}'.format(tile_coverage,tile.z,tile.x,tile.y,access_token)
-    response = requests.get(tile_url)
-    data = vt_bytes_to_geojson(response.content, tile.x, tile.y, tile.z,layer=tile_layer)
-
+for k,tile in enumerate(tiles):
+    tile_url = 'https://tiles.mapillary.com/maps/vtp/{}/2/{}/{}/{}?access_token={}'.format(tile_coverage,tile.z,tile.x,tile.y,access_token) # prep the url
+    response = requests.get(tile_url) # access the api
+    print(response.status_code)
+    print(response.content)
+    data = vt_bytes_to_geojson(response.content, tile.x, tile.y, tile.z,layer=tile_layer)  # convert the response to geojson
+    
     # push to output geojson object if yes
-    for feature in data['features']:
-        
+    for i,feature in enumerate(data['features']):
+        print("feature nr: ", i)
         # get lng,lat of each feature
-        lng = feature['geometry']['coordinates'][0]
+        lng = feature['geometry']['coordinates'][0]     
         lat = feature['geometry']['coordinates'][1]
         
         # ensure feature falls inside bounding box since tiles can extend beyond
         if lng > west and lng < east and lat > south and lat < north:
-
+            print("feature in bounding box")
             # create a folder for each unique sequence ID to group images by sequence
             sequence_id = feature['properties']['sequence_id']
             if not os.path.exists(sequence_id):
