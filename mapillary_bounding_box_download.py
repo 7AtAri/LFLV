@@ -26,10 +26,11 @@ tile_coverage = 'mly1_public'
 tile_layer = "image"
 
 # Mapillary access token -- user should provide their own
-access_token = 'MLY|XXX'
+access_token = 'MLY|6919611378086321|feb37f9b9d4e6dc4ca37b7a6a862f43c'
 
 # a bounding box in [east_lng,_south_lat,west_lng,north_lat] format
-west, south, east, north = [-80.13423442840576,25.77376933762778,-80.1264238357544,25.788608487732198]
+# west, south, east, north = [-115.150331, 36.085134 , -115.183582, 36.150943]
+west, south, east, north = [-115.198081, 36.094581 , -115.212071, 36.105747]
 
 # get the list of tiles with x and y coordinates which intersect our bounding box
 # MUST be at zoom level 14 where the data is available, other zooms currently not supported
