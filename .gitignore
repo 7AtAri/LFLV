@@ -127,6 +127,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+LasVegas/    
+# LasVegas is the name of the virtual environment
 
 # Spyder project settings
 .spyderproject
