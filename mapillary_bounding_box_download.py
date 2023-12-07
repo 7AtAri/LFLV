@@ -1,3 +1,12 @@
+# this code 
+# - downloads all images in a bounding box from Mapillary
+# - groups images by sequence ID
+# - saves images to a folder named by sequence ID
+# - saves images with image ID as filename
+# 
+# code adapted from:
+# https://gist.github.com/cbeddow/79d68aa6ed0f028d8dbfdad2a4142cf5
+#
 import mercantile
 import mapbox_vector_tile
 import requests
