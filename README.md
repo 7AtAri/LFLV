@@ -16,13 +16,13 @@ possible datasources:
 
   * https://developers.google.com/maps/documentation/streetview?hl=de
     
-- google street view:
+- google street view packages for downloading images (all need Google API):
 
   * https://github.com/FluffyMaguro/Streetview-panorama-scraping
   * https://pypi.org/project/google-streetview/
   * https://pypi.org/project/sv-dlp/
   
-- google image search:
+- google image search package:
   * https://pypi.org/project/GoogleImageScraper/
     
 - mapillary image download via API:
