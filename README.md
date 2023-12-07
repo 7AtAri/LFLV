@@ -43,10 +43,10 @@ possible datasources:
 
      smaller test piece (additionally):
   
-     1)36.094720, -115.198081 (rechts, east, unten, south)
-     2)36.094581, -115.211899 (links, west, unten,south)
-     3)36.105192, -115.212071 (links, west, oben, north)
-     4)36.105747, -115.200055  (rechts, east, oben, north)
+     1) 36.094720, -115.198081 (rechts, east, unten, south)
+     2) 36.094581, -115.211899 (links, west, unten,south)
+     3) 36.105192, -115.212071 (links, west, oben, north)
+     4) 36.105747, -115.200055  (rechts, east, oben, north)
   
      -> bounding box: [-115.198081, 36.094581 , -115.212071, 36.105747]
   
