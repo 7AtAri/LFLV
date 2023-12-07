@@ -18,12 +18,12 @@ from vt2geojson.tools import vt_bytes_to_geojson
 output= { "type": "FeatureCollection", "features": [] }
 
 # vector tile endpoints -- change this in the API request to reference the correct endpoint
-tile_coverage = 'mly1_public'
+tile_coverage = 'mly1_public'    # image access point
 
 # tile layer depends which vector tile endpoints: 
 # 1. if map features or traffic signs, it will be "point" always
 # 2. if looking for coverage, it will be "image" for points, "sequence" for lines, or "overview" for far zoom
-tile_layer = "image"
+tile_layer = "image"          
 
 # Mapillary access token -- user should provide their own
 access_token = 'MLY|6919611378086321|feb37f9b9d4e6dc4ca37b7a6a862f43c'
