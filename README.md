@@ -44,7 +44,7 @@ possible datasources:
 *  Object Recognition Model (YOLO)
 *  adding tag to image of object in closest proximity to the text
 
-**4) Architectural elements data -tagged images- of domain specialist**
+**4) Architectural elements data -tagged images- of domain specialists**
 
 * https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset
 * [papers with code](https://paperswithcode.com/dataset/wikichurches) data: https://zenodo.org/records/5166987 -> [paper](https://arxiv.org/pdf/2108.06959.pdf)
