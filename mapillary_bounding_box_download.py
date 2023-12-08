@@ -34,7 +34,9 @@ west, south, east, north = [-115.198081, 36.094581 , -115.212071, 36.105747]
 
 # get the list of tiles with x and y coordinates which intersect our bounding box
 # MUST be at zoom level 14 where the data is available, other zooms currently not supported
-tiles = list(mercantile.tiles(west, south, east, north, 14)) # prepare the tiles
+
+#tiles = list(mercantile.tiles(west, south, east, north, 14)) # prepare the tiles
+tiles = list(mercantile.tiles( east, south,west, north, 14)) # prepare the tiles
 
 print("Number of tiles: ", len(tiles))
 # loop through list of tiles to get tile z/x/y to plug in to Mapillary endpoints and make request
