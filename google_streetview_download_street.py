@@ -3,6 +3,8 @@ import os
 import polyline
 import geopy.distance
 
+import config
+
 ''' this code does:
     1) Get the coordinates of two intersections on a street using the Google Geocoding API.
     2) Use the Google Directions API to obtain a route between these two intersections.
@@ -132,42 +134,46 @@ def download_street_view_images_360(api_key, points):
                 print(f"Error downloading image at {lat}, {lon} with heading {heading}: {e}")
 
 
-API_KEY = 'YOUR_API_KEY'
-CITY = 'Las Vegas'
-STREET = 'Las Vegas Boulevard'
-START_INTERSECTION = 'Russell Road'
-END_INTERSECTION = 'Cincinnati Avenue'
-INTERVAL_METERS = 50  # Distance between points in meters
+def main():
+    os.makedirs("images", exist_ok=True)  # Create the images directory
 
-# Get coordinates of intersections
-start_lat, start_lon = get_coordinates(f"{STREET} & {START_INTERSECTION}", CITY, API_KEY)
-end_lat, end_lon = get_coordinates(f"{STREET} & {END_INTERSECTION}", CITY, API_KEY)
+    API_KEY = config.google_api_key  # Your API key here
+    CITY = 'Las Vegas'
+    STREET = 'Las Vegas Boulevard'
+    START_INTERSECTION = 'Russell Road'
+    END_INTERSECTION = 'Cincinnati Avenue' # alternativ: 'Sahara Avenue'
+    INTERVAL_METERS = 50  # Distance between points in meters
 
-if start_lat and end_lat:
-    route = get_route(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY)
-    if route:
-        points = interpolate_points(route, INTERVAL_METERS)
-        download_street_view_images(API_KEY, points)
+    # Get coordinates of intersections
+    start_lat, start_lon = get_coordinates(f"{STREET} & {START_INTERSECTION}", CITY, API_KEY)
+    end_lat, end_lon = get_coordinates(f"{STREET} & {END_INTERSECTION}", CITY, API_KEY)
+
+    if start_lat and end_lat:
+        route = get_route(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY)
+        if route:
+            points = interpolate_points(route, INTERVAL_METERS)
+            download_street_view_images(API_KEY, points)
+        else:
+            print("Could not retrieve a valid route.")
     else:
-        print("Could not retrieve a valid route.")
-else:
-    print("Could not find coordinates for the specified intersections.")
+        print("Could not find coordinates for the specified intersections.")
 
-
+if __name__ == "__main__":
+    main()
 
 
 '''
 Potential Issues and Considerations:
 
-    API Key Restrictions: Ensure that the API key is unrestricted or properly restricted to allow calls to the Geocoding, Directions, and Street View APIs.
+    API Key Restrictions: Ensure that the API key is unrestricted or
+                                        properly restricted to allow calls to the Geocoding, Directions, and Street View APIs.
 
-    Error Handling: The script should handle possible errors, such as network issues, API rate limits, or no data available for a specific location.
+    Error Handling: The script should handle possible errors, such as network issues, 
+                            API rate limits, or no data available for a specific location.
 
-    Route Complexity: The actual route might be complex, especially in urban areas with many turns or one-way streets. The polyline returned by the Directions API is an overview and might simplify some of these complexities.
+    Route Complexity: The actual route might be complex, 
+                                    especially in urban areas with many turns or one-way streets. 
+                                    The polyline returned by the Directions API is an overview 
+                                    and might simplify some of these complexities.
 
-    API Quotas and Costs: Frequent or numerous requests to these APIs may result in charges or hitting usage quotas.
-
-    Dependencies: Ensure all required libraries (requests, polyline, geopy) are installed.
-
-    Testing: It's essential to test the script with real-world examples to ensure it behaves as expected, especially for handling intersections and generating routes.
 '''
