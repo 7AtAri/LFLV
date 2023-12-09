@@ -24,6 +24,7 @@ possible datasources:
   
 - google image search package:
   * https://pypi.org/project/GoogleImageScraper/
+  * https://www.wikihow.com/Download-an-Image-from-Google-Maps
     
 - mapillary image download via API:
   * token: MLY|6919611378086321|feb37f9b9d4e6dc4ca37b7a6a862f43c
