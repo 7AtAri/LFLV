@@ -133,10 +133,10 @@ def download_street_view_images_360(api_key, points):
 
 
 API_KEY = 'YOUR_API_KEY'
-CITY = 'Your City'
-STREET = 'Main Street'
-START_INTERSECTION = 'First Street'
-END_INTERSECTION = 'Second Street'
+CITY = 'Las Vegas'
+STREET = 'Las Vegas Boulevard'
+START_INTERSECTION = 'Russell Road'
+END_INTERSECTION = 'Cincinnati Avenue'
 INTERVAL_METERS = 50  # Distance between points in meters
 
 # Get coordinates of intersections
