@@ -36,9 +36,9 @@ west, south, east, north = [-115.198081, 36.094581 , -115.212071, 36.105747]
 # MUST be at zoom level 14 where the data is available, other zooms currently not supported
 
 #tiles = list(mercantile.tiles(west, south, east, north, 14)) # prepare the tiles
-tiles = list(mercantile.tiles( east, south,west, north, 14)) # prepare the tiles
+tiles = list(mercantile.tiles(west, south,east, north, 14)) # prepare the tiles
 
-print("Number of tiles: ", len(tiles))
+#print("Number of tiles: ", len(tiles))
 # loop through list of tiles to get tile z/x/y to plug in to Mapillary endpoints and make request
 for k,tile in enumerate(tiles):
     tile_url = 'https://tiles.mapillary.com/maps/vtp/{}/2/{}/{}/{}?access_token={}'.format(tile_coverage,tile.z,tile.x,tile.y,access_token) # prep the url
@@ -49,7 +49,7 @@ for k,tile in enumerate(tiles):
     
     # push to output geojson object if yes
     for i,feature in enumerate(data['features']):
-        print("feature nr: ", i)
+        #print("feature nr: ", i)
         # get lng,lat of each feature
         lng = feature['geometry']['coordinates'][0]     
         lat = feature['geometry']['coordinates'][1]
@@ -59,8 +59,11 @@ for k,tile in enumerate(tiles):
             print("feature in bounding box")
             # create a folder for each unique sequence ID to group images by sequence
             sequence_id = feature['properties']['sequence_id']
-            if not os.path.exists(sequence_id):
-                os.makedirs(sequence_id)
+            image_folder_path = "/Users/ari/Documents/Data_Science/3_semester/learning_from_las_vegas/LFLV/images/"
+            sequence_folder_path = os.path.join(image_folder_path, sequence_id)
+
+            if not os.path.exists(sequence_folder_path):
+                os.makedirs(sequence_folder_path)
 
             # request the URL of each image
             image_id = feature['properties']['id']
