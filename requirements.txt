@@ -1,6 +1,5 @@
 
-# requirements
-
+# requirements for mapillary:
 mercantile
 mapbox_vector_tile
 requests
@@ -8,3 +7,9 @@ vt2geojson
 
 # for download_images.py
 mapillary
+
+# for google street_view_download_street.py
+requests
+os
+polyline
+geopy

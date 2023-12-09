@@ -1,5 +1,5 @@
 
-
+'''
 import mapillary.interface as mly
 import requests
 import json
@@ -19,3 +19,5 @@ data = mly.get_image_close_to(
 
 with open("get_image_close_to.json", mode="w") as f:
     json.dump(data, f, indent=4)
+
+'''
