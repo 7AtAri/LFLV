@@ -2,7 +2,9 @@ import requests
 import os
 import polyline
 import geopy.distance
-
+from geopy.distance import geodesic, distance, great_circle
+from geopy import Point
+import math
 import config
 
 ''' this code does:
@@ -30,13 +32,23 @@ def get_coordinates_imp(street, city, api_key):
         url = f"https://maps.googleapis.com/maps/api/geocode/json?address={street},+{city}&key={api_key}"
         response = requests.get(url)
         response.raise_for_status()  # Raises HTTPError for 4xx/5xx responses
-        results = response.json().get('results', [])
-        if results:
-            location = results[0]['geometry']['location']
-            return location['lat'], location['lng']
+        data = response.json()
+        
+        if data.get('status') == 'OK':
+            results = data.get('results', [])
+            if results:
+                location = results[0]['geometry']['location']
+                return location['lat'], location['lng']
+            else:
+                print("No results found for the given location.")
+        else:
+            print(f"Error in Geocoding API response: {data.get('status')}, {data.get('error_message', 'No error message')}")
+            
     except requests.exceptions.RequestException as e:
         print(f"Error fetching coordinates: {e}")
+
     return None, None
+
 
 def get_route(start_point, end_point, api_key):
     """Get route between two points using Google Directions API."""
@@ -54,7 +66,7 @@ def get_route(start_point, end_point, api_key):
     return []
 
 # improved version of get_route:
-def get_route_impr(start_point, end_point, api_key):
+def get_route_imp(start_point, end_point, api_key):
     """Get route between two points using Google Directions API."""
     try:
         url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_point}&destination={end_point}&key={api_key}"
@@ -84,20 +96,53 @@ def calculate_points(start_coord, end_coord, step=0.001):
         start = point
     return points
 
+
+def calculate_initial_compass_bearing(pointA, pointB):
+    """
+    Calculate the bearing between two points.
+    The formulae used is the following:
+    θ = atan2(sin(Δlong).cos(lat2), cos(lat1).sin(lat2) − sin(lat1).cos(lat2).cos(Δlong))
+    """
+    if (type(pointA) != tuple) or (type(pointB) != tuple):
+        raise ValueError("Only tuples are supported as arguments")
+
+    lat1 = math.radians(pointA[0])
+    lat2 = math.radians(pointB[0])
+
+    diffLong = math.radians(pointB[1] - pointA[1])
+
+    x = math.sin(diffLong) * math.cos(lat2)
+    y = math.cos(lat1) * math.sin(lat2) - (math.sin(lat1) * math.cos(lat2) * math.cos(diffLong))
+
+    initial_bearing = math.atan2(x, y)
+
+    # Now we have the initial bearing but math.atan2() returns values from -π to +π (−180° to +180°)
+    # so we need to normalize the result by converting it to a compass bearing (0° to 360°)
+    initial_bearing = math.degrees(initial_bearing)
+    compass_bearing = (initial_bearing + 360) % 360
+
+    return compass_bearing
+
 def interpolate_points(points, distance_meters):
     """Interpolate points along the route at specified intervals in meters."""
     interpolated_points = []
     for i in range(len(points) - 1):
-        start = geopy.Point(points[i])
-        end = geopy.Point(points[i + 1])
-        d = geopy.distance.distance(kilometers=distance_meters / 1000.0)
+        start = Point(points[i])
+        end = Point(points[i + 1])
 
-        while start.distance(end) > distance_meters:
+        while True:
             interpolated_points.append((start.latitude, start.longitude))
-            start = d.destination(point=start, bearing=d.bearing(start, end))
+            segment = geodesic((start.latitude, start.longitude), (end.latitude, end.longitude))
+            if segment.meters <= distance_meters:
+                break
+            bearing_to_end = calculate_initial_compass_bearing((start.latitude, start.longitude), (end.latitude, end.longitude))
+            start = geodesic(kilometers=distance_meters / 1000.0).destination(point=start, bearing=bearing_to_end)
 
-    interpolated_points.append((end.latitude, end.longitude))  # Add the last point
+    # Add the last point
+    interpolated_points.append((end.latitude, end.longitude))
     return interpolated_points
+
+
 
 def download_street_view_images(api_key, points):
     for i, (lon, lat) in enumerate(points):
@@ -134,32 +179,31 @@ def download_street_view_images_360(api_key, points):
                 print(f"Error downloading image at {lat}, {lon} with heading {heading}: {e}")
 
 
-def main():
-    os.makedirs("images", exist_ok=True)  # Create the images directory
 
-    API_KEY = config.google_api_key  # Your API key here
-    CITY = 'Las Vegas'
-    STREET = 'Las Vegas Boulevard'
-    START_INTERSECTION = 'Russell Road'
-    END_INTERSECTION = 'Cincinnati Avenue' # alternativ: 'Sahara Avenue'
-    INTERVAL_METERS = 50  # Distance between points in meters
+os.makedirs("images", exist_ok=True)  # Create the images directory
 
-    # Get coordinates of intersections
-    start_lat, start_lon = get_coordinates(f"{STREET} & {START_INTERSECTION}", CITY, API_KEY)
-    end_lat, end_lon = get_coordinates(f"{STREET} & {END_INTERSECTION}", CITY, API_KEY)
+API_KEY = config.google_api_key  # Your API key here
+CITY = 'Las Vegas'
+STREET = 'Las Vegas Boulevard'
+START_INTERSECTION = 'Russell Road'
+END_INTERSECTION =  'Sahara Avenue'
+INTERVAL_METERS = 50  # Distance between points in meters
 
-    if start_lat and end_lat:
-        route = get_route(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY)
-        if route:
-            points = interpolate_points(route, INTERVAL_METERS)
-            download_street_view_images(API_KEY, points)
-        else:
-            print("Could not retrieve a valid route.")
+# Get coordinates of intersections
+start_lat, start_lon = get_coordinates_imp(f"{STREET} and {START_INTERSECTION}", CITY, API_KEY)
+end_lat, end_lon = get_coordinates_imp(f"{STREET} and {END_INTERSECTION}", CITY, API_KEY)
+
+if start_lat and end_lat:
+    route = get_route_imp(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY)
+    if route:
+        points = interpolate_points(route, INTERVAL_METERS)
+        download_street_view_images(API_KEY, points)
     else:
-        print("Could not find coordinates for the specified intersections.")
+        print("Could not retrieve a valid route.")
+else:
+    print("Could not find coordinates for the specified intersections.")
 
-if __name__ == "__main__":
-    main()
+
 
 
 '''

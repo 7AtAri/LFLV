@@ -168,3 +168,6 @@ DS_Store
 
 # keys
 config.py
+
+# folder
+images/
