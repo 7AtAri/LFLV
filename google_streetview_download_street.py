@@ -7,6 +7,9 @@ from geopy import Point
 import math
 import config
 
+folder="images_fav_40_pitch_20"
+os.makedirs(folder, exist_ok=True)  # Create the images directory
+
 ''' this code does:
     1) Get the coordinates of two intersections on a street using the Google Geocoding API.
     2) Use the Google Directions API to obtain a route between these two intersections.
@@ -66,10 +69,12 @@ def get_route(start_point, end_point, api_key):
     return []
 
 # improved version of get_route:
-def get_route_imp(start_point, end_point, api_key):
+def get_route_imp(start_point, end_point, api_key, waypoints):
     """Get route between two points using Google Directions API."""
     try:
-        url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_point}&destination={end_point}&key={api_key}"
+        waypoints_param = '|'.join([f"via:{lat},{lon}" for lat, lon in waypoints]) 
+        url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_point}&destination={end_point}&avoid=highways&mode=walking&waypoints={waypoints_param}&key={api_key}"
+        #url = f"https://maps.googleapis.com/maps/api/directions/json?origin={start_point}&destination={end_point}&mode=walking&key={api_key}"
         response = requests.get(url)
         response.raise_for_status()
         routes = response.json().get('routes', [])
@@ -168,10 +173,10 @@ def download_street_view_images_360(api_key, points):
             try:
                 # fov is hardcoded here:
                 # fov=90 in url sets the field of view to 90 degrees, which provides a relatively wide-angle view.  A smaller value -> more zoomed-in, larger value (max fov=120) -> wider view.
-                url = f"https://maps.googleapis.com/maps/api/streetview?size=400x400&location={lat},{lon}&heading={heading}&fov=90&key={api_key}"
+                url = f"https://maps.googleapis.com/maps/api/streetview?size=400x400&location={lat},{lon}&heading={heading}&fov=40&pitch=20&key={api_key}"
                 response = requests.get(url)
                 response.raise_for_status()  # Check for HTTP errors
-                file_path = os.path.join("images", f"image_{i}_heading_{heading}.jpg")
+                file_path = os.path.join(folder, f"image_{i}_heading_{heading}.jpg")
                 with open(file_path, 'wb') as file:
                     file.write(response.content)
                     print(f"Downloaded {file_path}")
@@ -180,24 +185,29 @@ def download_street_view_images_360(api_key, points):
 
 
 
-os.makedirs("images", exist_ok=True)  # Create the images directory
 
 API_KEY = config.google_api_key  # Your API key here
 CITY = 'Las Vegas'
 STREET = 'Las Vegas Boulevard'
-START_INTERSECTION = 'Russell Road'
-END_INTERSECTION =  'Sahara Avenue'
-INTERVAL_METERS = 50  # Distance between points in meters
+START_INTERSECTION = 'Sahara Avenue'
+END_INTERSECTION =  'Russell Road'
+INTERVAL_METERS = 61  # Distance between points in meters
+
 
 # Get coordinates of intersections
 start_lat, start_lon = get_coordinates_imp(f"{STREET} and {START_INTERSECTION}", CITY, API_KEY)
 end_lat, end_lon = get_coordinates_imp(f"{STREET} and {END_INTERSECTION}", CITY, API_KEY)
+waypoint1_lat, waypoint1_lon = get_coordinates_imp(f"{STREET} and Mandala Bay Road", CITY, API_KEY)
+waypoint2_lat, waypoint2_lon = get_coordinates_imp(f"{STREET} and Paris Drive", CITY, API_KEY)
 
+
+waypoints=[(waypoint1_lat, waypoint1_lon), (waypoint2_lat, waypoint2_lon)]
 if start_lat and end_lat:
-    route = get_route_imp(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY)
+    route = get_route_imp(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY, waypoints)
     if route:
         points = interpolate_points(route, INTERVAL_METERS)
-        download_street_view_images(API_KEY, points)
+        print(points)
+        download_street_view_images_360(API_KEY, points)
     else:
         print("Could not retrieve a valid route.")
 else:

@@ -171,3 +171,5 @@ config.py
 
 # folder
 images/
+images_fav_60_pitch_10/
+images_fav_110_pitch_10/
