@@ -68,10 +68,10 @@ for k,tile in enumerate(tiles):
             # request the URL of each image
             image_id = feature['properties']['id']
             header = {'Authorization' : 'OAuth {}'.format(access_token)}
-            url = 'https://graph.mapillary.com/{}?fields=thumb_2048_url'.format(image_id)
-            r = requests.get(url, headers=header)
-            data = r.json()
-            image_url = data['thumb_2048_url']
+            url = 'https://graph.mapillary.com/{}?fields=thumb_1024_url'.format(image_id) # image resolution 1024 pixel wide
+            r = requests.get(url, headers=header) # access the api
+            data = r.json() # convert the response to json
+            image_url = data['thumb_1024_url']  
 
             # save each image with ID as filename to directory by sequence ID
             with open('{}/{}.jpg'.format(sequence_id, image_id), 'wb') as handler:

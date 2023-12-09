@@ -5,3 +5,6 @@ mercantile
 mapbox_vector_tile
 requests
 vt2geojson
+
+# for download_images.py
+mapillary
