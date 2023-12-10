@@ -31,6 +31,7 @@ possible datasources:
   * client ID: 6919611378086321 
   * https://github.com/pyramid3d/python-tools/blob/master/src/mapillary_download.py  -> date and driver
   * https://gist.github.com/cbeddow/79d68aa6ed0f028d8dbfdad2a4142cf5
+  * https://pypi.org/project/mapillary/#possible-issues
     
     latitude(nord-süd)-longitude(ost-west)
     
