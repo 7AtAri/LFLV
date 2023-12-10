@@ -197,8 +197,8 @@ INTERVAL_METERS = 61  # Distance between points in meters
 # Get coordinates of intersections
 start_lat, start_lon = get_coordinates_imp(f"{STREET} and {START_INTERSECTION}", CITY, API_KEY)
 end_lat, end_lon = get_coordinates_imp(f"{STREET} and {END_INTERSECTION}", CITY, API_KEY)
-waypoint1_lat, waypoint1_lon = get_coordinates_imp(f"{STREET} and Mandala Bay Road", CITY, API_KEY)
-waypoint2_lat, waypoint2_lon = get_coordinates_imp(f"{STREET} and Paris Drive", CITY, API_KEY)
+#waypoint1_lat, waypoint1_lon = get_coordinates_imp(f"{STREET} and Mandala Bay Road", CITY, API_KEY)
+#waypoint2_lat, waypoint2_lon = get_coordinates_imp(f"{STREET} and Paris Drive", CITY, API_KEY)
 
 sahara=(36.142076, -115.157606)
 circus_circus=(36.138817, -115.166408)
@@ -210,11 +210,7 @@ new_york_new_york=(36.101861, -115.175843)
 excalibur=(36.100318, -115.175263)
 luxor_drive=(36.095613, -115.174510)
 
-
-
-
-
-waypoints=[(waypoint1_lat, waypoint1_lon), (waypoint2_lat, waypoint2_lon)]
+waypoints=[sahara, circus_circus, venice, cesars_palace, paris_drive, bellagio_drive, new_york_new_york, excalibur, luxor_drive]
 if start_lat and end_lat:
     route = get_route_imp(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY, waypoints)
     if route:
