@@ -7,7 +7,7 @@ from geopy import Point
 import math
 import config
 
-folder="images_fav_40_pitch_20"
+folder="images_fav_50_pitch_20"
 os.makedirs(folder, exist_ok=True)  # Create the images directory
 
 ''' this code does:
