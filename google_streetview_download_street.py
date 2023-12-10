@@ -200,6 +200,19 @@ end_lat, end_lon = get_coordinates_imp(f"{STREET} and {END_INTERSECTION}", CITY,
 waypoint1_lat, waypoint1_lon = get_coordinates_imp(f"{STREET} and Mandala Bay Road", CITY, API_KEY)
 waypoint2_lat, waypoint2_lon = get_coordinates_imp(f"{STREET} and Paris Drive", CITY, API_KEY)
 
+sahara=(36.142076, -115.157606)
+circus_circus=(36.138817, -115.166408)
+venice=(36.123644, -115.169367)
+cesars_palace=(36.117576, -115.173490)
+paris_drive=(36.111743, -115.171362)
+bellagio_drive=(36.112280, -115.174795)
+new_york_new_york=(36.101861, -115.175843)
+excalibur=(36.100318, -115.175263)
+luxor_drive=(36.095613, -115.174510)
+
+
+
+
 
 waypoints=[(waypoint1_lat, waypoint1_lon), (waypoint2_lat, waypoint2_lon)]
 if start_lat and end_lat:
