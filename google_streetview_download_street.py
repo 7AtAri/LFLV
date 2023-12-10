@@ -7,7 +7,7 @@ from geopy import Point
 import math
 import config
 
-folder="images_fav_50_pitch_20"
+folder="images_fav_50_pitch_20_4"
 os.makedirs(folder, exist_ok=True)  # Create the images directory
 
 ''' this code does:
@@ -169,7 +169,7 @@ def download_street_view_images(api_key, points):
 def download_street_view_images_360(api_key, points):
     """Download 360-degree images at each point."""
     for i, (lat, lon) in enumerate(points):
-        for heading in [0, 90, 180, 270]:  # North, East, South, West
+        for heading in [45, 135, 225, 315]:  # [0, 90, 180, 270] North, East, South, West
             try:
                 # fov is hardcoded here:
                 # fov=90 in url sets the field of view to 90 degrees, which provides a relatively wide-angle view.  A smaller value -> more zoomed-in, larger value (max fov=120) -> wider view.
@@ -191,7 +191,7 @@ CITY = 'Las Vegas'
 STREET = 'Las Vegas Boulevard'
 START_INTERSECTION = 'Sahara Avenue'
 END_INTERSECTION =  'Russell Road'
-INTERVAL_METERS = 61  # Distance between points in meters
+INTERVAL_METERS = 33  # Distance between points in meters
 
 
 # Get coordinates of intersections
@@ -210,7 +210,9 @@ new_york_new_york=(36.101861, -115.175843)
 excalibur=(36.100318, -115.175263)
 luxor_drive=(36.095613, -115.174510)
 
-waypoints=[sahara, circus_circus, venice, cesars_palace, paris_drive, bellagio_drive, new_york_new_york, excalibur, luxor_drive]
+# bellagio_drive, new_york_new_york, excalibur, luxor_drive
+# circus_circus, venice, cesars_palace, paris_drive
+waypoints=[bellagio_drive, new_york_new_york, excalibur, luxor_drive] 
 if start_lat and end_lat:
     route = get_route_imp(f"{start_lat},{start_lon}", f"{end_lat},{end_lon}", API_KEY, waypoints)
     if route:
