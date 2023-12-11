@@ -70,6 +70,7 @@ possible datasources:
 **4) Architectural elements data -tagged images- of domain specialists**
 
 * https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset
+* https://old.datahub.io/dataset/architectural-heritage-elements-image-dataset
 * [papers with code](https://paperswithcode.com/dataset/wikichurches) data: https://zenodo.org/records/5166987 or https://doi.org/10.5281/zenodo.5166987 -> [paper](https://arxiv.org/pdf/2108.06959.pdf)
 * https://archive.org/details/americanglossary00garn/page/n53/mode/1up?view=theater
 * https://newenglandclassic.com/visual-architectural-element-glossary/
