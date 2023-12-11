@@ -87,6 +87,9 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 * find appropriate model
 * what is the task here: classification / object detection / ...?
 
+* [Deep Learning Architect - paper](https://arxiv.org/pdf/1812.01714.pdf)
+* DINOv2 for unsupervised learning 
+
 ### Visualization:
 
 - feature vector visualization: https://yosinski.com/deepvis
