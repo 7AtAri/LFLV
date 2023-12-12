@@ -72,6 +72,8 @@ possible datasources:
 * https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset
 * https://old.datahub.io/dataset/architectural-heritage-elements-image-dataset
 * [papers with code](https://paperswithcode.com/dataset/wikichurches) data: https://zenodo.org/records/5166987 or https://doi.org/10.5281/zenodo.5166987 -> [paper](https://arxiv.org/pdf/2108.06959.pdf)
+* https://www.kaggle.com/datasets/tompaulat/modernarchitecture
+* https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGNELZ
 * https://archive.org/details/americanglossary00garn/page/n53/mode/1up?view=theater
 * https://newenglandclassic.com/visual-architectural-element-glossary/
 * https://ia802804.us.archive.org/18/items/avisualdictionaryofarchitecture/A%20Visual%20Dictionary%20of%20Architecture.pdf
@@ -89,6 +91,7 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 * what is the task here: classification / object detection / ...?
 
 * [Deep Learning Architect - paper](https://arxiv.org/pdf/1812.01714.pdf)
+* [HIERARCHICAL (MULTI-LABEL) ARCHITECTURAL IMAGE RECOGNITION AND CLASSIFICATION](https://caadria2021.org/wp-content/uploads/2021/03/caadria2021_039.pdf)
 * https://ceur-ws.org/Vol-2602/paper1.pdf
 * DINOv2 for unsupervised learning 
 
