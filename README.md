@@ -80,6 +80,7 @@ possible datasources:
 * https://ia802804.us.archive.org/18/items/avisualdictionaryofarchitecture/A%20Visual%20Dictionary%20of%20Architecture.pdf
 
 * https://www.kaggle.com/datasets/amaralibey/gsv-cities
+* [collections of architectural images](https://guides.lib.umich.edu/c.php?g=282888&p=1885038)
 
 
 ## Transfer Learning
