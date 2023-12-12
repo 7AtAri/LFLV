@@ -90,8 +90,8 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 * find appropriate model
 * what is the task here: classification / object detection / ...?
 
-* [Deep Learning Architect - paper](https://arxiv.org/pdf/1812.01714.pdf)
-* [HIERARCHICAL (MULTI-LABEL) ARCHITECTURAL IMAGE RECOGNITION AND CLASSIFICATION](https://caadria2021.org/wp-content/uploads/2021/03/caadria2021_039.pdf)
+* [Deep Learning Architect](https://arxiv.org/pdf/1812.01714.pdf) --> paper
+* [HIERARCHICAL (MULTI-LABEL) ARCHITECTURAL IMAGE RECOGNITION AND CLASSIFICATION](https://caadria2021.org/wp-content/uploads/2021/03/caadria2021_039.pdf)  --> paper
 * https://ceur-ws.org/Vol-2602/paper1.pdf
 * DINOv2 for unsupervised learning 
 
