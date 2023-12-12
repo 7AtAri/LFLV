@@ -89,6 +89,7 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 
 * find appropriate model
 * what is the task here: classification / object detection / ...?
+* [hierarchical classification](https://towardsdatascience.com/https-medium-com-noa-weiss-the-hitchhikers-guide-to-hierarchical-classification-f8428ea1e076) --> article
 
 * [Deep Learning Architect](https://arxiv.org/pdf/1812.01714.pdf) --> paper
 * [HIERARCHICAL (MULTI-LABEL) ARCHITECTURAL IMAGE RECOGNITION AND CLASSIFICATION](https://caadria2021.org/wp-content/uploads/2021/03/caadria2021_039.pdf)  --> paper
