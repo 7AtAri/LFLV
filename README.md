@@ -89,10 +89,10 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 
 ### Model choice:
 
-* find appropriate model
-* what is the task here: classification / object detection / ...?
+* find appropriate model -> DINOv2
+* what is the task here: feature vector / embedding extraction -> distance matrix -> (hierarchical) clustering / knn -> maybe name new categories -> hierarchical classification on these
+* 2nd option prototype: feature vector on each category of architecture -> feature vectors on images -> distance matrix -> group / cluster on these?
 * [hierarchical classification](https://towardsdatascience.com/https-medium-com-noa-weiss-the-hitchhikers-guide-to-hierarchical-classification-f8428ea1e076) --> article
-
 * [Deep Learning Architect](https://arxiv.org/pdf/1812.01714.pdf) --> paper
 * [HIERARCHICAL (MULTI-LABEL) ARCHITECTURAL IMAGE RECOGNITION AND CLASSIFICATION](https://caadria2021.org/wp-content/uploads/2021/03/caadria2021_039.pdf)  --> paper
 * https://ceur-ws.org/Vol-2602/paper1.pdf
