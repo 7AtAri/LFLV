@@ -71,16 +71,15 @@ possible datasources:
 
 * https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset
 * https://www.kaggle.com/datasets/gustavoachavez/architectural-styles-periods-dataset
-* https://old.datahub.io/dataset/architectural-heritage-elements-image-dataset
+* https://old.datahub.io/dataset/architectural-heritage-elements-image-dataset  **not useful**
 * [papers with code](https://paperswithcode.com/dataset/wikichurches) data: https://zenodo.org/records/5166987 or https://doi.org/10.5281/zenodo.5166987 -> [paper](https://arxiv.org/pdf/2108.06959.pdf)
 * https://www.kaggle.com/datasets/tompaulat/modernarchitecture
-* AIDA: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGNELZ
+* AIDA: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IGNELZ  **not useful**
 * https://archive.org/details/americanglossary00garn/page/n53/mode/1up?view=theater
 * https://newenglandclassic.com/visual-architectural-element-glossary/
 * https://ia802804.us.archive.org/18/items/avisualdictionaryofarchitecture/A%20Visual%20Dictionary%20of%20Architecture.pdf
-
-* https://www.kaggle.com/datasets/amaralibey/gsv-cities
-* [collections of architectural images](https://guides.lib.umich.edu/c.php?g=282888&p=1885038)
+* https://www.kaggle.com/datasets/amaralibey/gsv-cities  **not useful**
+* [collections of architectural images](https://guides.lib.umich.edu/c.php?g=282888&p=1885038)  **not useful**
 
 
 ## Transfer Learning
