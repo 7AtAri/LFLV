@@ -55,9 +55,12 @@ to get embeddings.
 
 ### Model choice:
 
-**Research** 
+**final choice**
 
-* find appropriate model -> DINOv2
+DINOv2 vs CLIP
+
+**further Research** 
+
 * [hierarchical classification](https://towardsdatascience.com/https-medium-com-noa-weiss-the-hitchhikers-guide-to-hierarchical-classification-f8428ea1e076) --> article
 * [Deep Learning Architect](https://arxiv.org/pdf/1812.01714.pdf) --> paper
 * [HIERARCHICAL (MULTI-LABEL) ARCHITECTURAL IMAGE RECOGNITION AND CLASSIFICATION](https://caadria2021.org/wp-content/uploads/2021/03/caadria2021_039.pdf)  --> paper
@@ -65,14 +68,13 @@ to get embeddings.
 
 + https://mediatum.ub.tum.de/doc/1693528/document.pdf
 
-**final choice**
-DINOv2 vs CLIP
-
 ### Visualization:
 
+- conditional image generation for the new visual vocabulary
+- tsne or pcs visualization of latent space clusters of architectural concepts
 - feature vector visualization: https://yosinski.com/deepvis
-- XAI Method?
-- conditional image generation?
+- XAI Method 
+
 
 ## Evaluation
 
