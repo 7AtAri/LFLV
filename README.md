@@ -84,6 +84,8 @@ to get embeddings.
 
 ### Model choice:
 
+**Research** 
+
 * find appropriate model -> DINOv2
 * what is the task here: feature vector / embedding extraction -> distance matrix -> (hierarchical) clustering / knn -> maybe name new categories -> hierarchical classification on these
 * 2nd option prototype: feature vector on each category of architecture -> feature vectors on images -> distance matrix -> group / cluster on these?
@@ -94,6 +96,9 @@ to get embeddings.
 * DINOv2 for unsupervised learning 
 
 + https://mediatum.ub.tum.de/doc/1693528/document.pdf
+
+**final choice**
+DINOv2 vs CLIP
 
 ### Visualization:
 
