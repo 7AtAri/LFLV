@@ -61,13 +61,7 @@ possible datasources:
   - [Learning-based Camera Calibration](https://github.com/Easonyesheng/CCS)
   
 
-**3) eventually tagging the data** / parts of the data (maybe only for testing?) 
-
-*  Optical Character Recognition: https://github.com/aqntks/Easy-Yolo-OCR
-*  Object Recognition Model (YOLO)
-*  adding tag to image of object in closest proximity to the text
-
-**4) Architectural elements data -tagged images- of domain specialists**
+**3) Architectural elements data -tagged images- of domain specialists**
 
 * https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset **1**
 * https://www.kaggle.com/datasets/gustavoachavez/architectural-styles-periods-dataset **1**
@@ -82,9 +76,11 @@ possible datasources:
 * [collections of architectural images](https://guides.lib.umich.edu/c.php?g=282888&p=1885038)  **not useful**
 
 
-## Transfer Learning
+## Transfer Learning / Feature Extraction - get embedding from Pre Trained model
 
-A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Vegas Images.
+A (state-of-the-art) pretrained neural network will be used 
+for architecture classes datasets and on the Las Vegas Images
+to get embeddings.
 
 ### Model choice:
 
@@ -107,10 +103,11 @@ A (state-of-the-art) pretrained neural network will be fine-tuned on the Las Veg
 
 ## Evaluation
 
+- [FAISS](https://github.com/facebookresearch/faiss/wiki/Getting-started) [install](https://faiss.ai)
 - measure feature vector distances
 - visualize with r-tsne
 - visualize neurons for architectural features
-- metric for creativity? https://github.com/facebookresearch/DoodlerGAN
+
 
 
 
