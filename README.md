@@ -79,6 +79,7 @@ DINOv2 vs CLIP
 ## Evaluation
 
 - [FAISS](https://github.com/facebookresearch/faiss/wiki/Getting-started) [install](https://faiss.ai)
+- [FAISS tutorial with database](https://thetisdev.hashnode.dev/building-an-image-search-engine-with-python-and-faiss)
 - measure feature vector distances
 - visualize with r-tsne
 - visualize neurons for architectural features
