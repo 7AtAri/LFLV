@@ -54,6 +54,7 @@ possible datasources:
 
 * https://www.kaggle.com/datasets/dumitrux/architectural-styles-dataset **1**
 * https://www.kaggle.com/datasets/gustavoachavez/architectural-styles-periods-dataset **1**
+  
 * https://old.datahub.io/dataset/architectural-heritage-elements-image-dataset  **not useful**
 * [papers with code](https://paperswithcode.com/dataset/wikichurches) data: https://zenodo.org/records/5166987 or https://doi.org/10.5281/zenodo.5166987 -> [paper](https://arxiv.org/pdf/2108.06959.pdf) **1**
 * https://www.kaggle.com/datasets/tompaulat/modernarchitecture **1**
