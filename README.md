@@ -4,10 +4,10 @@
 
 - [ ] **get feature vectors for known architectural styles**
   - [ ] structure the datasets into one dataset
-  - [ ] get mean of feature embeddings for one image
-  - [ ] get feature embeddings for each group of images from a style
-  - [ ] get group mean vector of each group
-  - [ ] save those in a list
+  - [x] get mean of feature embeddings for one image
+  - [x] get feature embeddings for each group of images from a style
+  - [x] get group mean vector of each group
+  - [x] save those in a list
 
 - [ ] **get feature vectors for the Las Vegas Strip**
   - [ ] structure the datasets into one dataset
