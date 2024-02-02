@@ -2,7 +2,7 @@
 
 ## TODO Checklist
 
-- [ ] **get feature vectors for known architectural styles**
+- [x] **get feature vectors for known architectural styles**
   - [ ] structure the datasets into one dataset
   - [x] get mean of feature embeddings for one image
   - [x] get feature embeddings for each group of images from a style
