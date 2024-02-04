@@ -100,9 +100,16 @@ DINOv2
 
 + https://mediatum.ub.tum.de/doc/1693528/document.pdf
 
-### Saving and Evaluating the Results
-* Storing the Distance Matrix: Given the size of the resulting distance matrix, consider using efficient storage formats like HDF5 (with libraries such as h5py in Python) to save the matrix. HDF5 can handle large datasets and allows for partial reading/writing, which can be very useful for large matrices.
-* Evaluating Results: Depending on your specific use case (e.g., clustering, nearest neighbor search), evaluate the results by looking at metrics relevant to your application. For instance, in clustering, you might look at silhouette scores, while for nearest neighbors, precision at k might be more relevant.
+### Saving 
+* Saving: The distance matrix can be large, so consider saving it in a **binary format (e.g., NumPy .npy file)** for efficiency. You could also use **HDF5 format (with h5py library)** if you need to work with the data in a more structured way. HDF5 can handle large datasets and allows for partial reading/writing, which can be very useful for large matrices.
+
+### Evaluating Results: 
+* **Thresholding**: Set a distance threshold to decide when a vector from the 14,000 set is similar enough to a category represented by the 25 vectors.
+* **Nearest Neighbors**: Assign each of the 14,000 vectors to the same category as its nearest neighbor among the 25 vectors.
+* **Clustering**: Use clustering algorithms (e.g., k-means, hierarchical clustering) on the distance matrix to find new categories among the 14,000 vectors. This approach can help if you're looking to discover entirely new categories rather than categorizing based on the existing 25.
+
+Depending on your specific use case (e.g., clustering, nearest neighbor search), evaluate the results by looking at metrics relevant to your application. For instance, in clustering, you might look at silhouette scores, while for nearest neighbors, precision at k might be more relevant.
+To find new categories among the 14,000 vectors, you can use clustering techniques (e.g., K-means, DBSCAN, HDBSCAN) on the distance matrix or directly on the vectors. The choice of algorithm depends on the characteristics of your data and the specificities of your new categories.
 
 ### Visualization:
 
