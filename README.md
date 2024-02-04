@@ -69,6 +69,15 @@ possible datasources:
 
 * what is the task here: feature vector / embedding extraction -> distance matrix -> (hierarchical) clustering / knn -> maybe name new categories -> hierarchical classification on these
 * 2nd option prototype: feature vector on each category of architecture -> feature vectors on images -> distance matrix -> group / cluster on these?
+
+## Tools:
+
+* **NumPy and SciPy**: For numerical computations in Python, NumPy can be used for efficient operations on arrays, and SciPy offers more advanced distance computation functions (e.g., scipy.spatial.distance.cdist) that can compute distances between two collections of vectors efficiently.
+* **scikit-learn**: This library has efficient implementations for distance calculations and can handle large datasets. The pairwise_distances function can compute the distance matrix between two sets of vectors using various metrics (e.g., Euclidean, Manhattan).
+* **FAISS (Facebook AI Similarity Search)**: Developed by Facebook AI Research, FAISS is designed for efficient similarity search and clustering of dense vectors. It is particularly effective for large-scale datasets and can compute similarity/distance matrices rapidly.
+* **Annoy (Approximate Nearest Neighbors Oh Yeah)**: Annoy is a library optimized for memory usage and speed, making it suitable for computing distances between large sets of vectors. It's particularly good for nearest neighbor searches in high-dimensional spaces.
+* **HNSW (Hierarchical Navigable Small World)**: HNSW is an algorithm implemented in libraries like nmslib that excels in high-dimensional nearest neighbor search, offering a good balance between accuracy and performance for large datasets.
+
   
 ## Transfer Learning / Feature Extraction - get embedding from Pre Trained model
 
@@ -80,7 +89,7 @@ to get embeddings.
 
 **final choice**
 
-DINOv2 vs CLIP
+DINOv2 
 
 **further Research** 
 
@@ -90,6 +99,10 @@ DINOv2 vs CLIP
 * https://ceur-ws.org/Vol-2602/paper1.pdf
 
 + https://mediatum.ub.tum.de/doc/1693528/document.pdf
+
+### Saving and Evaluating the Results
+* Storing the Distance Matrix: Given the size of the resulting distance matrix, consider using efficient storage formats like HDF5 (with libraries such as h5py in Python) to save the matrix. HDF5 can handle large datasets and allows for partial reading/writing, which can be very useful for large matrices.
+* Evaluating Results: Depending on your specific use case (e.g., clustering, nearest neighbor search), evaluate the results by looking at metrics relevant to your application. For instance, in clustering, you might look at silhouette scores, while for nearest neighbors, precision at k might be more relevant.
 
 ### Visualization:
 
