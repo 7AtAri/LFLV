@@ -78,6 +78,19 @@ possible datasources:
 * **Annoy (Approximate Nearest Neighbors Oh Yeah)**: Annoy is a library optimized for memory usage and speed, making it suitable for computing distances between large sets of vectors. It's particularly good for nearest neighbor searches in high-dimensional spaces.
 * **HNSW (Hierarchical Navigable Small World)**: HNSW is an algorithm implemented in libraries like nmslib that excels in high-dimensional nearest neighbor search, offering a good balance between accuracy and performance for large datasets.
 
+## Clustering
+eventually do a dimensionality reduction first:
+* PCA (Principal Component Analysis)
+* t-SNE (t-Distributed Stochastic Neighbor Embedding) can be applied to reduce the dimensions of your embeddings while preserving the most important variance.
+* UMAP (Uniform Manifold Approximation and Projection) is another powerful technique, especially for visual data, and can preserve both local and global structures.
+
+  
+With the embeddings now in a more manageable space, apply clustering algorithms to discover new categories:
+
+* K-Means: A straightforward approach, but you need to specify the number of clusters, which might be challenging if you're looking for unknown categories.
+* DBSCAN or HDBSCAN: These density-based clustering algorithms do not require specifying the number of clusters and can handle noise in your data.
+* Agglomerative Hierarchical Clustering: Useful for hierarchical structure discovery, allowing you to see categories within categories.
+
   
 ## Transfer Learning / Feature Extraction - get embedding from Pre Trained model
 
