@@ -2,7 +2,7 @@
 
 ## TODO Checklist
 
-- [ ] **get feature vectors for known architectural styles**
+- [x] **get feature vectors for known architectural styles**
   - [ ] structure the datasets into one dataset
   - [x] get mean of feature embeddings for one image
   - [x] get feature embeddings for each group of images from a style
@@ -69,6 +69,28 @@ possible datasources:
 
 * what is the task here: feature vector / embedding extraction -> distance matrix -> (hierarchical) clustering / knn -> maybe name new categories -> hierarchical classification on these
 * 2nd option prototype: feature vector on each category of architecture -> feature vectors on images -> distance matrix -> group / cluster on these?
+
+## Tools:
+
+* **NumPy and SciPy**: For numerical computations in Python, NumPy can be used for efficient operations on arrays, and SciPy offers more advanced distance computation functions (e.g., scipy.spatial.distance.cdist) that can compute distances between two collections of vectors efficiently.
+* **scikit-learn**: This library has efficient implementations for distance calculations and can handle large datasets. The pairwise_distances function can compute the distance matrix between two sets of vectors using various metrics (e.g., Euclidean, Manhattan).
+* **FAISS (Facebook AI Similarity Search)**: Developed by Facebook AI Research, FAISS is designed for efficient similarity search and clustering of dense vectors. It is particularly effective for large-scale datasets and can compute similarity/distance matrices rapidly.
+* **Annoy (Approximate Nearest Neighbors Oh Yeah)**: Annoy is a library optimized for memory usage and speed, making it suitable for computing distances between large sets of vectors. It's particularly good for nearest neighbor searches in high-dimensional spaces.
+* **HNSW (Hierarchical Navigable Small World)**: HNSW is an algorithm implemented in libraries like nmslib that excels in high-dimensional nearest neighbor search, offering a good balance between accuracy and performance for large datasets.
+
+## Clustering
+eventually do a dimensionality reduction first:
+* PCA (Principal Component Analysis)
+* t-SNE (t-Distributed Stochastic Neighbor Embedding) can be applied to reduce the dimensions of your embeddings while preserving the most important variance.
+* UMAP (Uniform Manifold Approximation and Projection) is another powerful technique, especially for visual data, and can preserve both local and global structures.
+
+  
+With the embeddings now in a more manageable space, apply clustering algorithms to discover new categories:
+
+* K-Means: A straightforward approach, but you need to specify the number of clusters, which might be challenging if you're looking for unknown categories.
+* DBSCAN or HDBSCAN: These density-based clustering algorithms do not require specifying the number of clusters and can handle noise in your data.
+* Agglomerative Hierarchical Clustering: Useful for hierarchical structure discovery, allowing you to see categories within categories.
+
   
 ## Transfer Learning / Feature Extraction - get embedding from Pre Trained model
 
@@ -80,7 +102,7 @@ to get embeddings.
 
 **final choice**
 
-DINOv2 vs CLIP
+DINOv2 
 
 **further Research** 
 
@@ -90,6 +112,17 @@ DINOv2 vs CLIP
 * https://ceur-ws.org/Vol-2602/paper1.pdf
 
 + https://mediatum.ub.tum.de/doc/1693528/document.pdf
+
+### Saving 
+* Saving: The distance matrix can be large, so consider saving it in a **binary format (e.g., NumPy .npy file)** for efficiency. You could also use **HDF5 format (with h5py library)** if you need to work with the data in a more structured way. HDF5 can handle large datasets and allows for partial reading/writing, which can be very useful for large matrices.
+
+### Evaluating Results: 
+* **Thresholding**: Set a distance threshold to decide when a vector from the 14,000 set is similar enough to a category represented by the 25 vectors.
+* **Nearest Neighbors**: Assign each of the 14,000 vectors to the same category as its nearest neighbor among the 25 vectors.
+* **Clustering**: Use clustering algorithms (e.g., k-means, hierarchical clustering) on the distance matrix to find new categories among the 14,000 vectors. This approach can help if you're looking to discover entirely new categories rather than categorizing based on the existing 25.
+
+Depending on your specific use case (e.g., clustering, nearest neighbor search), evaluate the results by looking at metrics relevant to your application. For instance, in clustering, you might look at silhouette scores, while for nearest neighbors, precision at k might be more relevant.
+To find new categories among the 14,000 vectors, you can use clustering techniques (e.g., K-means, DBSCAN, HDBSCAN) on the distance matrix or directly on the vectors. The choice of algorithm depends on the characteristics of your data and the specificities of your new categories.
 
 ### Visualization:
 
