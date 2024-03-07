@@ -3,22 +3,21 @@
 ## TODO Checklist
 
 - [x] **get feature vectors for known architectural styles**
-  - [ ] structure the datasets into one dataset
   - [x] get mean of feature embeddings for one image
   - [x] get feature embeddings for each group of images from a style
   - [x] get group mean vector of each group
-  - [x] save those in a list
+  - [x] save those in a json 
 
-- [ ] **get feature vectors for the Las Vegas Strip**
-  - [ ] structure the datasets into one dataset
-  - [ ] get mean of feature embeddings per image
-  - [ ] save the feature embeddings per image to a list / db
+- [x] **get feature vectors for the Las Vegas Strip**
+  - [x] structure the datasets into one dataset
+  - [x] get mean of feature embeddings per image
+  - [x] save/pickle the feature embeddings per image (npz matrix)
 
-- [ ] **run similarity search with FAISS**
+- [x] **run similarity search (with FAISS?)**
   - [ ] index both sets of vectors
-  - [ ] run clustering algorithm on Las Vegas images?
-  - [ ] run similarity measure
-  - [ ] visualize the result
+  - [x] run clustering algorithm on Las Vegas images
+  - [x] run similarity measure
+  - [x] visualize the result
   - [ ] the result should best be clickable to see an image
 
 
