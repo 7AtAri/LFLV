@@ -12,6 +12,11 @@ Therefore google street view images of the Las Vegas Strip are
 embedded with DINOv2 and compared with embeddings from a dataset
 of architectural styles.
 
+## Code:
+
+- calculations [jupyter notebook](https://github.com/7AtAri/LFLV/blob/main/lflv.ipynb)
+- visualizations [jupyter notebook](https://github.com/7AtAri/LFLV/blob/main/cluster_and_visualize.ipynb)
+
 ## TODO Checklist
 
 - [x] **get feature vectors for known architectural styles**
