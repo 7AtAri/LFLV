@@ -225,20 +225,3 @@ else:
     print("Could not find coordinates for the specified intersections.")
 
 
-
-
-'''
-Potential Issues and Considerations:
-
-    API Key Restrictions: Ensure that the API key is unrestricted or
-                                        properly restricted to allow calls to the Geocoding, Directions, and Street View APIs.
-
-    Error Handling: The script should handle possible errors, such as network issues, 
-                            API rate limits, or no data available for a specific location.
-
-    Route Complexity: The actual route might be complex, 
-                                    especially in urban areas with many turns or one-way streets. 
-                                    The polyline returned by the Directions API is an overview 
-                                    and might simplify some of these complexities.
-
-'''
