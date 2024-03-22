@@ -17,6 +17,10 @@ of architectural styles.
 - calculations [jupyter notebook](https://github.com/7AtAri/LFLV/blob/main/lflv.ipynb)
 - visualizations [jupyter notebook](https://github.com/7AtAri/LFLV/blob/main/cluster_and_visualize.ipynb)
 
+## Presentation:
+
+- as [pdf](https://github.com/7AtAri/LFLV/blob/main/presentation/Learning_from_LasVegas.pdf)
+
 ## TODO Checklist
 
 - [x] **get feature vectors for known architectural styles**
